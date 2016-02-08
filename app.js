@@ -7,7 +7,7 @@ app.get('/', function (req, res) {
 
 app.get('/home', function (req, res) {
   // res.send('This is my home route.');
-  res.redirect('/index.html')
+  res.redirect('index.html')
 });
 
 app.listen(process.env.PORT || 3000, function () {
