@@ -17,23 +17,26 @@ var barPadding = 1;
 
 var svg = d3.select("body")
     .append("svg")
+    .attr("padding", 20)
     .attr("width", w)
-    .attr("height", h); ;
+    .attr("height", h);
 
 svg.selectAll("rect")
    .data(dataset)
    .enter()
    .append("rect")
    .attr("x", function(d, i) {
-        return i * (w / dataset.length);
+        return i * (w / dataset.length) + 20;
    })
    .attr("y", function(d) {
         return h - ((d[1] - d[0]) * 4);
    })
+   .attr("padding", 20)
    .attr("width", 20 + dataset.length - barPadding)
    .attr("height", function(d) {
         return (d[1] - d[0]) * 4;
-   });
+   })
+   .attr("fill", "burlywood");
 
 svg.selectAll("text")
    .data(dataset)
@@ -44,15 +47,68 @@ svg.selectAll("text")
    })
    .attr("text-anchor", "middle")
    .attr("x", function(d, i) {
-        return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2;
+        return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2 + 20;
    })
    .attr("y", function(d) {
         return h - ((d[1] - d[0]) * 4) + 14;
    })
+   .attr("padding", 20)
    .attr("font-family", "sans-serif")
    .attr("font-size", "11px")
-   .attr("fill", "burlywood");
+   .attr("fill", "blue");
 
+var renderPage = function(){
+    var userInput = document.getElementById('year').value;
+    console.log("renderPage is working")
+    console.log("userInput =", userInput)
+
+    svg.selectAll("text")
+        .remove()
+
+    svg.selectAll("rect")
+        .remove()
+
+  
+    svg.selectAll("rect") 
+        .data(dataset)
+       .enter()
+       .append("rect")
+       .filter(function(d) { return d[0] <= userInput && d[1] >= userInput  })
+       .attr("x", function(d, i) {
+            return i * (w / dataset.length) + 20;
+       })
+       .attr("y", function(d) {
+            return h - ((d[1] - d[0]) * 4);
+       })
+       .attr("padding", 20)
+       .attr("width", 20 + dataset.length - barPadding)
+       .attr("height", function(d) {
+            return (d[1] - d[0]) * 4;
+       })
+       .attr("fill", "burlywood");
+
+    svg.selectAll("text")
+        .data(dataset)
+       .enter()
+       .append("text")
+       .filter(function(d) { return d[0] <= userInput && d[1] >= userInput  })
+       .text(function(d) {
+          return d[2];
+       })
+       .attr("text-anchor", "middle")
+       .attr("x", function(d, i) {
+            return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2 + 20;
+       })
+       .attr("y", function(d) {
+            return h - ((d[1] - d[0]) * 4) + 14;
+       })
+       .attr("padding", 20)
+       .attr("font-family", "sans-serif")
+       .attr("font-size", "11px")
+       .attr("fill", "blue");
+
+   console.log("made it through function =  ")
+}
 // d3.select("svg").selectAll("p")
 //     .data(dataset)
 //     .enter()

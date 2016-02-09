@@ -8,9 +8,11 @@
 
   <body>
     <h1>Lifespans</h1>
-    <form action="index.html" method="post">
-      <label>Who was alive in: <input type="text" id="year" /></label><br />
-      <input type="button" value="Submit" onclick="buildCanvas()" />
+    <h3>Enter a year between 1710 and 2005</h2>
+    <h3>The height tells you who lived longer</h2>
+    <form>
+      <label>Who was alive in: <input type="text" id="year" /></label>
+      <input type="button" value="Submit" onclick="renderPage()" />
     </form>
 
     <script type="text/javascript" src="d3javascript.js"></script>
