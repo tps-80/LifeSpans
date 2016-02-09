@@ -25,73 +25,74 @@ var dataset = [
   [ 1756, 1791, 'Wolfgang Amadeus Mozart' ],
   [ 1869, 1948, 'Mahatma Gandhi' ] ];
 
-var w = 900;
+var w = window.innerWidth;
 var h = 400;
 var barPadding = 1;
 
 var svg = d3.select("body")
     .append("svg")
     .attr("padding", 10)
+    .attr("margin", 10)
     .attr("width", w)
     .attr("height", h);
 
-svg.selectAll("rect")
-   .data(dataset)
-   .enter()
-   .append("rect")
-   .sort(function(a,b) { return d3.ascending(a[1] - a[0], b[1] - b[0]); })
-   .attr("x", function(d, i) {
-        return i * (w / dataset.length) + 20;
-   })
-   .attr("y", function(d) {
-        return h - ((d[1] - d[0]) * 4);
-   })
-   .attr("padding", 10)
-   .attr("width", 20 - barPadding)
-   .attr("height", function(d) {
-        return (d[1] - d[0]) * 4;
-   })
-   .attr("fill", "burlywood");
+// svg.selectAll("rect")
+//    .data(dataset)
+//    .enter()
+//    .append("rect")
+//    .sort(function(a,b) { return d3.ascending(a[1] - a[0], b[1] - b[0]); })
+//    .attr("x", function(d, i) {
+//         return i * (w / dataset.length) + 20;
+//    })
+//    .attr("y", function(d) {
+//         return h - ((d[1] - d[0]) * 4);
+//    })
+//    .attr("padding", 10)
+//    .attr("width", 20 - barPadding)
+//    .attr("height", function(d) {
+//         return (d[1] - d[0]) * 4;
+//    })
+//    .attr("fill", "burlywood");
 
-svg.selectAll("text")
-   .data(dataset)
-   .enter()
-   .append("text")
-   .sort(function(a,b) { return d3.ascending(a[1] - a[0], b[1] - b[0]); })
-   .text(function(d) {
-        return d[2];
-   })
-   .attr("text-anchor", "middle")
-   .attr("x", function(d, i) {
-        return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2 + 20;
-   })
-   .attr("y", function(d, i) {
-        return h - (i * 10 + (d[1] - d[0]));
-   })
-   .attr("padding", 20)
-   .attr("font-family", "sans-serif")
-   .attr("font-size", "11px")
-   .attr("fill", "blue");
+// svg.selectAll("text")
+//    .data(dataset)
+//    .enter()
+//    .append("text")
+//    .sort(function(a,b) { return d3.ascending(a[1] - a[0], b[1] - b[0]); })
+//    .text(function(d) {
+//         return d[2];
+//    })
+//    .attr("text-anchor", "middle")
+//    .attr("x", function(d, i) {
+//         return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2 + 20;
+//    })
+//    .attr("y", function(d, i) {
+//         return h - (i * 10 + (d[1] - d[0]));
+//    })
+//    .attr("padding", 20)
+//    .attr("font-family", "sans-serif")
+//    .attr("font-size", "11px")
+//    .attr("fill", "blue");
 
-svg.selectAll("p")
-   .data(dataset)
-   .enter()
-   .append("text")
-   .sort(function(a,b) { return d3.ascending(a[1] - a[0], b[1] - b[0]); })
-   .text(function(d) {
-        return d[1] - d[0];
-   })
-   .attr("text-anchor", "middle")
-   .attr("x", function(d, i) {
-        return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2 + 10;
-   })
-   .attr("y", function(d) {
-        return h - 14;
-   })
-   .attr("padding", 20)
-   .attr("font-family", "sans-serif")
-   .attr("font-size", "11px")
-   .attr("fill", "blue");
+// svg.selectAll("p")
+//    .data(dataset)
+//    .enter()
+//    .append("text")
+//    .sort(function(a,b) { return d3.ascending(a[1] - a[0], b[1] - b[0]); })
+//    .text(function(d) {
+//         return d[1] - d[0];
+//    })
+//    .attr("text-anchor", "middle")
+//    .attr("x", function(d, i) {
+//         return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2 + 10;
+//    })
+//    .attr("y", function(d) {
+//         return h - 14;
+//    })
+//    .attr("padding", 20)
+//    .attr("font-family", "sans-serif")
+//    .attr("font-size", "11px")
+//    .attr("fill", "blue");
 
 var filterYear = function(){
     var userInput = document.getElementById('year').value;
@@ -99,10 +100,10 @@ var filterYear = function(){
     console.log("userInput =", userInput)
 
     svg.selectAll("text")
-        .remove()
+        .remove();
 
     svg.selectAll("rect")
-        .remove()
+        .remove();
 
   
     svg.selectAll("rect") 
@@ -124,7 +125,7 @@ var filterYear = function(){
        })
        .attr("fill", "burlywood");
 
-    svg.selectAll("text")
+    svg.selectAll("p.name")
         .data(dataset)
        .enter()
        .append("text")
@@ -145,7 +146,7 @@ var filterYear = function(){
        .attr("font-size", "11px")
        .attr("fill", "blue");
 
-    svg.selectAll("p")
+    svg.selectAll("p.age")
        .data(dataset)
        .enter()
        .append("text")
@@ -158,6 +159,27 @@ var filterYear = function(){
        .attr("x", function(d, i) {
             return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2 + 10;
        })
+       .attr("y", function(d, i) {
+            return h - (i * 10 + (d[1] - d[0])) + 30;
+       })
+       .attr("padding", 20)
+       .attr("font-family", "sans-serif")
+       .attr("font-size", "11px")
+       .attr("fill", "blue");
+
+    svg.selectAll("p.birth")
+       .data(dataset)
+       .enter()
+       .append("text")
+       .sort(function(a,b) { return d3.ascending(a[1] - a[0], b[1] - b[0]); })
+       .filter(function(d) { return d[0] <= userInput && d[1] >= userInput  })
+       .text(function(d) {
+            return d[0];
+       })
+       .attr("text-anchor", "middle")
+       .attr("x", function(d, i) {
+            return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2 + 10;
+       })
        .attr("y", function(d) {
             return h - 14;
        })
@@ -165,6 +187,29 @@ var filterYear = function(){
        .attr("font-family", "sans-serif")
        .attr("font-size", "11px")
        .attr("fill", "blue");
+
+    svg.selectAll("p.death")
+       .data(dataset)
+       .enter()
+       .append("text")
+       .sort(function(a,b) { return d3.ascending(a[1] - a[0], b[1] - b[0]); })
+       .filter(function(d) { return d[0] <= userInput && d[1] >= userInput  })
+       .text(function(d) {
+            return d[1];
+       })
+       .attr("text-anchor", "middle")
+       .attr("x", function(d, i) {
+            return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2 + 10;
+       })
+       .attr("y", function(d) {
+            return h - ((d[1] - d[0]) * 4);
+       })
+       .attr("padding", 20)
+       .attr("font-family", "sans-serif")
+       .attr("font-size", "11px")
+       .attr("fill", "blue");
+
+
    document.getElementById('year').value = "";
    console.log("made it through function =  ")
 }
@@ -200,7 +245,7 @@ var filterAge = function(){
        })
        .attr("fill", "burlywood");
 
-    svg.selectAll("text")
+    svg.selectAll("p.name")
         .data(dataset)
        .enter()
        .append("text")
@@ -221,14 +266,35 @@ var filterAge = function(){
        .attr("font-size", "11px")
        .attr("fill", "blue");
 
-    svg.selectAll("p")
+    svg.selectAll("p.age")
+       .data(dataset)
+       .enter()
+       .append("text")
+       .sort(function(a,b) { return d3.ascending(a[1] - a[0], b[1] - b[0]); })
+       .filter(function(d) { return d[1] - d[0] >= userInput   })
+       .text(function(d) {
+            return d[1] - d[0];
+       })
+       .attr("text-anchor", "middle")
+       .attr("x", function(d, i) {
+            return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2 + 10;
+       })
+       .attr("y", function(d, i) {
+            return h - (i * 10 + (d[1] - d[0])) + 30;
+       })
+       .attr("padding", 20)
+       .attr("font-family", "sans-serif")
+       .attr("font-size", "11px")
+       .attr("fill", "blue");
+
+    svg.selectAll("p.birth")
        .data(dataset)
        .enter()
        .append("text")
        .sort(function(a,b) { return d3.ascending(a[1] - a[0], b[1] - b[0]); })
        .filter(function(d) { return d[1] - d[0] >= userInput  })
        .text(function(d) {
-            return d[1] - d[0];
+            return d[0];
        })
        .attr("text-anchor", "middle")
        .attr("x", function(d, i) {
@@ -241,6 +307,28 @@ var filterAge = function(){
        .attr("font-family", "sans-serif")
        .attr("font-size", "11px")
        .attr("fill", "blue");
+
+    svg.selectAll("p.death")
+       .data(dataset)
+       .enter()
+       .append("text")
+       .sort(function(a,b) { return d3.ascending(a[1] - a[0], b[1] - b[0]); })
+       .filter(function(d) { return d[1] - d[0] >= userInput  })
+       .text(function(d) {
+            return d[1];
+       })
+       .attr("text-anchor", "middle")
+       .attr("x", function(d, i) {
+            return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2 + 10;
+       })
+       .attr("y", function(d) {
+            return h - ((d[1] - d[0]) * 4);
+       })
+       .attr("padding", 20)
+       .attr("font-family", "sans-serif")
+       .attr("font-size", "11px")
+       .attr("fill", "blue");
+
    document.getElementById('age').value = "";
    console.log("made it through function =  ")
 }
