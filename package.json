@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/tps-80/Lifespans#readme",
   "dependencies": {
+    "body-parser": "^1.14.2",
     "express": "^4.13.4"
   }
 }
