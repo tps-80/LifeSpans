@@ -8,12 +8,23 @@
 
   <body>
     <h1>Lifespans</h1>
-    <h3>Enter a year between 1710 and 2005</h2>
-    <h3>The height tells you who lived longer</h2>
+    <h3>Enter a year between 1710 and the current year</h2>
     <form>
-      <label>Who was alive in: <input type="text" id="year" /></label>
-      <input type="button" value="Submit" onclick="renderPage()" />
+      <label>
+        Who was alive in: <input type="text" id="year" onkeydown = "if (event.keyCode === 13){document.getElementById('btnSearch').click()}"/>
+
+      </label>
+      <input type="button" value="Submit" id="yearBtnSearch" onclick="filterYear()" />
     </form>
+    <br/>
+    <form>
+      <label>
+        Who lived past age: <input type="text" id="age" onkeydown = "if (event.keyCode === 13){document.getElementById('ageBtnSearch').click()}"/>
+
+      </label>
+      <input type="button" value="Submit" id="ageBtnSearch" onclick="filterAge()" />
+    </form>
+    <h4>The bottom number tells you their age at death or current age</h4>
 
     <script type="text/javascript" src="d3javascript.js"></script>
   </body>
