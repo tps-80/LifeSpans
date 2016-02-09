@@ -1,12 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="lifespansApp">
   <head>
     <meta charset="utf-8" />
     <title>Lifespans</title>
+    <script src="./node_modules/angular/angular.min.js"></script>
   </head>
 
   <body>
     <h1>If I write stuff here does it appear?</h1>
+    <h2 ng-controller="lifespansController"></h2>
+    <div ng-app="lifespansApp" ng-controller="lifespansController">
+    Find someone who was born in this year: <input ng-model="year">
+    </div>
     <script src="app.js"></script>
+    <script src="lifespansController.js"></script>
+
   </body>
 </html>

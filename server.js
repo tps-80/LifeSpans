@@ -1,14 +1,16 @@
 var express = require('express');
 var app = express();
 
+
 app.get('/', function (req, res) {
-  res.send('My Express app is working!');
+  res.sendfile('index.html')
+  // res.send('Dude!  My Express app is working!');
 });
 
-app.get('/home', function (req, res) {
-  // res.send('This is my home route.');
-  res.redirect('https://lifespans.herokuapp.com/index.html')
-});
+// app.get('/home', function (req, res) {
+//   // res.send('This is my home route.');
+  
+// });
 
 app.listen(process.env.PORT || 3000, function () {
   console.log('Example app listening on port 3000!');
