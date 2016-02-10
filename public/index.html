@@ -13,7 +13,7 @@
       <h3>of the top 25 most famous* people on Wikipedia</h3>
       <form>
         <label>
-          Tell me who was alive in: <input type="text" placeholder="1710 or later" id="year" onkeydown = "if (event.keyCode === 13){document.getElementById('btnSearch').click()}"/>
+          Tell me who was alive in: <input type="text" placeholder="1710 or later" id="year" />
 
         </label>
         <input type="button" value="Submit" id="yearBtnSearch" onclick="filterYear()" />
@@ -21,7 +21,8 @@
       <br/>
       <form>
         <label>
-          Tell me who lived past age: <input type="text" id="age" placeholder="65" onkeydown = "if (event.keyCode === 13){document.getElementById('ageBtnSearch').click()}"/>
+          Tell me who lived past age: <input type="text" placeholder="65" id="age" onkeydown="function(event) {if (event.keyCode === 13){      event.preventDefault();
+      return false;}}"/>
 
         </label>
         <input type="button" value="Submit" id="ageBtnSearch" onclick="filterAge()" />

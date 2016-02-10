@@ -1,3 +1,12 @@
+//disables the enter key form submission without jQuery
+function stopRKey(evt) { 
+  var evt = (evt) ? evt : ((event) ? event : null); 
+  var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null); 
+  if ((evt.keyCode == 13) && (node.type=="text"))  {return false;} 
+} 
+
+document.onkeypress = stopRKey; 
+
 var dataset = [ 
   [ 1911, 2004, 'Ronald Reagan' ],
   [ 1889, 1945, 'Adolf Hitler' ],
@@ -36,7 +45,7 @@ var svg = d3.select("div.wrapper")
     .style("background-color", "rgb(213, 208, 204)");
 
 var filterYear = function(){
-    var userInput = document.getElementById('year').value;
+    var userInput = document.getElementById('year').value || 0;
     console.log("renderPage is working")
     console.log("userInput =", userInput)
 
@@ -155,7 +164,7 @@ var filterYear = function(){
 }
 
 var filterAge = function(){
-    var userInput = document.getElementById('age').value;
+    var userInput = document.getElementById('age').value || 0;
     console.log("renderPage is working")
     console.log("userInput =", userInput)
 
