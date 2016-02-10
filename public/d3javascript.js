@@ -34,7 +34,8 @@ var svg = d3.select("body")
     .attr("padding", 10)
     .attr("margin", 10)
     .attr("width", w)
-    .attr("height", h);
+    .attr("height", h)
+    .style("background-color", "rgb(213, 208, 204)");
 
 // svg.selectAll("rect")
 //    .data(dataset)
@@ -144,7 +145,7 @@ var filterYear = function(){
        .attr("padding", 20)
        .attr("font-family", "sans-serif")
        .attr("font-size", "11px")
-       .attr("fill", "blue");
+       .attr("fill", "rgb(18, 91, 158)");
 
     svg.selectAll("p.age")
        .data(dataset)
@@ -165,7 +166,7 @@ var filterYear = function(){
        .attr("padding", 20)
        .attr("font-family", "sans-serif")
        .attr("font-size", "11px")
-       .attr("fill", "blue");
+       .attr("fill", "rgb(179, 61, 54) ");
 
     svg.selectAll("p.birth")
        .data(dataset)
@@ -186,7 +187,7 @@ var filterYear = function(){
        .attr("padding", 20)
        .attr("font-family", "sans-serif")
        .attr("font-size", "11px")
-       .attr("fill", "blue");
+       .attr("fill", "rgb(64, 112, 109) ");
 
     svg.selectAll("p.death")
        .data(dataset)
@@ -207,7 +208,7 @@ var filterYear = function(){
        .attr("padding", 20)
        .attr("font-family", "sans-serif")
        .attr("font-size", "11px")
-       .attr("fill", "blue");
+       .attr("fill", "rgb(64, 112, 109) ");
 
 
    document.getElementById('year').value = "";
@@ -264,7 +265,7 @@ var filterAge = function(){
        .attr("padding", 20)
        .attr("font-family", "sans-serif")
        .attr("font-size", "11px")
-       .attr("fill", "blue");
+       .attr("fill", "rgb(18, 91, 158)");
 
     svg.selectAll("p.age")
        .data(dataset)
@@ -285,7 +286,7 @@ var filterAge = function(){
        .attr("padding", 20)
        .attr("font-family", "sans-serif")
        .attr("font-size", "11px")
-       .attr("fill", "blue");
+       .attr("fill", "rgb(179, 61, 54)");
 
     svg.selectAll("p.birth")
        .data(dataset)
@@ -306,7 +307,7 @@ var filterAge = function(){
        .attr("padding", 20)
        .attr("font-family", "sans-serif")
        .attr("font-size", "11px")
-       .attr("fill", "blue");
+       .attr("fill", "rgb(64, 112, 109) ");
 
     svg.selectAll("p.death")
        .data(dataset)
@@ -327,7 +328,7 @@ var filterAge = function(){
        .attr("padding", 20)
        .attr("font-family", "sans-serif")
        .attr("font-size", "11px")
-       .attr("fill", "blue");
+       .attr("fill", "rgb(64, 112, 109) ");
 
    document.getElementById('age').value = "";
    console.log("made it through function =  ")

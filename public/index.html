@@ -4,14 +4,15 @@
     <meta charset="utf-8" />
     <title>Lifespans</title>
     <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="/css/styles.css">
   </head>
 
-  <body>
+  <body class="grey">
     <h1>Lifespans</h1>
     <h3>Enter a year between 1710 and the current year</h2>
     <form>
       <label>
-        Who was alive in: <input type="text" id="year" onkeydown = "if (event.keyCode === 13){document.getElementById('btnSearch').click()}"/>
+        Tell me who was alive in: <input type="text" id="year" onkeydown = "if (event.keyCode === 13){document.getElementById('btnSearch').click()}"/>
 
       </label>
       <input type="button" value="Submit" id="yearBtnSearch" onclick="filterYear()" />
@@ -19,12 +20,16 @@
     <br/>
     <form>
       <label>
-        Who lived past age: <input type="text" id="age" onkeydown = "if (event.keyCode === 13){document.getElementById('ageBtnSearch').click()}"/>
+        Tell me who lived past age: <input type="text" id="age" onkeydown = "if (event.keyCode === 13){document.getElementById('ageBtnSearch').click()}"/>
 
       </label>
       <input type="button" value="Submit" id="ageBtnSearch" onclick="filterAge()" />
     </form>
-    <h4>The bottom number tells you their age at death or current age</h4>
+    <ul>
+      <li>Top number: Year of death or Current Year</li>
+      <li>Middle number: Age at death or Current Age</li>
+      <li>Bottom number: Year of birth</li>    
+    </ul>
 
     <script type="text/javascript" src="d3javascript.js"></script>
   </body>
