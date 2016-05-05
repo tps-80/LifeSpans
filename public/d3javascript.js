@@ -1,3 +1,5 @@
+//demo work   http://blockbuilder.org/anonymous/212a6143333f9c558f4a
+
 //disables the enter key form submission without jQuery
 function stopRKey(evt) { 
   var evt = (evt) ? evt : ((event) ? event : null); 
@@ -37,6 +39,14 @@ var dataset = [
 var w = window.innerWidth - 29;
 var h = 400;
 var barPadding = 1;
+
+var xScale = d3.scale.linear()
+  .domain([d3.min(dataset, function(d) {
+    return d[0];
+  }), d3.max(dataset, function(d) {
+    return d[1];
+  }) ])
+  .range([0, width]);
 
 var svg = d3.select("div.wrapper")
     .append("svg")
@@ -281,3 +291,66 @@ var filterAge = function(){
    document.getElementById('age').value = "";
    console.log("made it through function =  ")
 }
+
+    // var width = 500;
+    // var height = 200;
+    // var barPadding = 4;
+    
+    // var dataset = [ 
+    //   [ 1809, 1865, 'Abraham Lincoln' ],
+    //   [ 1882, 1945, 'Franklin D. Roosevelt' ],
+    //   [ 1874, 1965, 'Winston Churchill' ]];
+    
+    // var xScale = d3.scale.linear()
+    //   .domain([
+    //     d3.min(dataset, function(d) {
+    //       return d[0];
+    //     }), 
+    //     d3.max(dataset, function(d) {
+    //       return d[1];
+    //     }) 
+    //   ])
+    //   .range([0, width]);
+    
+      
+    // var svg = d3.select("body")
+    //   .append("svg")
+    //   .attr("width", width)
+    //   .attr("height", height)
+    //   .style("background-color", "burlywood")
+
+    // svg.selectAll("rect")
+    //   .data(dataset)
+    //   .enter()
+    //   .append("rect")
+    //   .attr("x", function(d) {
+    //     return xScale(d[0]);
+    //   })
+    //   .attr("y", function(d, i) {
+    //     console.log('y', i * (height/ dataset.length));
+    //     return i * (height/ dataset.length) + barPadding;
+    //   })
+    //   .attr("height", 20)
+    //   .attr("width", function(d) {
+    //     var barWidth = (d[1] - d[0]) * 5;  //Scale up by factor of 5
+    //     return barWidth + "px";
+    //   });
+    
+    // svg.selectAll("text") // p.name
+    //   .data(dataset)
+    //   .enter()
+    //   .append("text")
+    //   .text(function(d) {
+    //     return d[2]
+    //   })
+    //   .attr("x", function(d) {
+    //     return xScale(d[0]);
+    //   })
+    //   .attr("y", function(d, i) {
+    //     return i * (height/ dataset.length) + barPadding;
+    //   })
+    //   .attr("dy", "1em")
+    //   .style({
+    //     "text-anchor": "start",
+    //     "fill": "white"
+    //          })

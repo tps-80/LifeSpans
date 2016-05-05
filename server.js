@@ -18,20 +18,6 @@ app.get('/', function(req, res, next){
   res.status(200).sendFile(__dirname +'/public/index.html');
 });
 
-
-// app.get('/', function (req, res) {
-//   res.sendfile('public/index.html')
-//   // res.send('Dude!  My Express app is working!');
-// });
-
-
-
 app.listen(process.env.PORT || port, function(){
   console.log('The server is listening on port: ', port);
 });
-
-// app.listen(process.env.PORT || 3000, function () {
-//   console.log('Example app listening on port 3000!');
-// });
-
-// module.exports = app;
