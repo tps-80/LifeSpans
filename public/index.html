@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Lifespans</title>
+    <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+  </head>
+
+  <body>
+    <div class="wrapper grey">
+      <h1>Lifespans</h1>
+      <h3>of the top 25 most famous* people on Wikipedia</h3>
+      <form>
+        <label>
+          Tell me who was alive in: <input type="text" placeholder="1710 or later" id="year" />
+
+        </label>
+        <input type="button" value="Submit" id="yearBtnSearch" onclick="filterYear()" />
+      </form>
+      <br/>
+      <form>
+        <label>
+          Tell me who lived past age: <input type="text" placeholder="65" id="age" onkeydown="function(event) {if (event.keyCode === 13){      event.preventDefault();
+      return false;}}"/>
+
+        </label>
+        <input type="button" value="Submit" id="ageBtnSearch" onclick="filterAge()" />
+      </form>
+    </div>
+    <ul>
+      <li>Top number: Year of death or current year</li>
+      <li>Middle number: Age at death or current age</li>
+      <li>Bottom number: Year of birth</li>    
+    </ul>
+    <h4>*based on pagelinks</h3>
+    <h4>Thanks to <a href="http://waitbutwhy.com/2016/01/horizontal-history.html"> Wait But Why - Horizontal History</a> for inspiration</h3>
+
+    <script type="text/javascript" src="d3javascript.js"></script>
+  </body>
+</html>

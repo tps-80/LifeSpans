@@ -1,0 +1,23 @@
+{
+  "name": "lifespans",
+  "version": "1.0.0",
+  "description": "Lifespans is an app that lets you see which influential figures were alive in a given year.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tps-80/Lifespans.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tps-80/Lifespans/issues"
+  },
+  "homepage": "https://github.com/tps-80/Lifespans#readme",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "express": "^4.13.4"
+  }
+}
